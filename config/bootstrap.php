@@ -72,10 +72,11 @@ use Cake\Utility\Security;
 try {
     Configure::config('default', new PhpConfig());
     Configure::load('app', 'default', false);
+    Configure::load('myconfig', 'default', false);
+
 } catch (\Exception $e) {
     exit($e->getMessage() . "\n");
 }
-
 /*
  * Load an environment local configuration file.
  * You can use a file like app_local.php to provide local overrides to your

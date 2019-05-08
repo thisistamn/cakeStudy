@@ -1,5 +1,4 @@
 <?php
-
 namespace App\controller;
 
 class HelloController extends AppController

@@ -1,6 +1,8 @@
 <?php
-
 namespace App\Controller;
+use \Cake\Core\Configure;
+use Cake\Event\Event;
+use Cake\Routing\Router;
 
 Class FormController extends AppController {
     public function initialize(){
@@ -10,16 +12,12 @@ Class FormController extends AppController {
         $this->set('footer','Hello/footer2');
     }
     public function index(){
-
+        $test =Router::url(['controller'=>'form','action'=>'index']);
+        $this->set('test',$test);
     }
     public function sendForm(){
-        $str = $this->request['url']['text1'];
-        $result = "";
-        if($str != ''){
-            $result = "you type:" . $str;
-        } else {
-            $result = 'empty.';
-        }
-        $this->set('result',h($result));
+        $result = '';
+        $result = $this->request->getData('text1');
+        $this->set('result',$result);
     }
 }
